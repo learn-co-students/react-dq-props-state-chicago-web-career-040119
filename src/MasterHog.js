@@ -1,26 +1,38 @@
 import React, { Component } from 'react'
 import Master from './assets/master-hog.png'
 import BabyHog from './BabyHog'
-// import offspring from './db.js'
+import offspring from './db.js'
 
 export default class MasterHog extends Component {
 
   constructor() {
     super()
     this.state = {
-      eyeColor: "blue",
+      eyeColor: "",
     }
   }
 
 
   changeEyeColor = (e) => {
+    // let color = e.target.value
+    // let image = 'nothing'
+    // if (color === "blue") {
+    //   image = 'http://localhost:3000/assets/blue-eyes.png'
+    // } else if (color === "glowing") {
+    //   image = 'http://localhost:3000/assets/glowing-eyes.png'
+    // } else if ( color === "sun") {
+    //   image = 'http://localhost:3000/assets/sun-eyes.png'
+    // } else {
+    //   image = 'http://localhost:3000/assets/unadulterated-hoglette.png'
+    // }
     this.setState({
-      eyeColor: e.target.value
+      eyeColor: e.target.value,
     })
   }
 
 
   render() {
+
     return (
       <div>
 
@@ -40,9 +52,10 @@ export default class MasterHog extends Component {
         </div>
         
         <ul className="hoglist">
-          <BabyHog />
-          <BabyHog />
-          <BabyHog />
+          {/* <BabyHog color={this.state.eyeColor} id={offspring[0].id} name={offspring[0].name} hobby={offspring[0].hobby}/> */}
+          <BabyHog color={this.state.eyeColor} babyData={offspring[0]}/>
+          <BabyHog color={this.state.eyeColor} babyData={offspring[1]}/>
+          <BabyHog color={this.state.eyeColor} babyData={offspring[2]}/>
         </ul>
 
       </div>
